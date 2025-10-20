@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader,PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
 from langchain_pinecone import PineconeVectorStore
@@ -15,7 +15,10 @@ client = Client()
 
 def main():
     print("Loading document...")
-    loader = TextLoader("D:\Langchain\pdf_chatbot\medium_blog.txt")
+    # loader = TextLoader("D:\Langchain\pdf_chatbot\medium_blog.txt")
+    # document = loader.load()
+    pdf_path = "D:/Langchain/pdf_chatbot/231210997v5.pdf"
+    loader = PyPDFLoader(file_path=pdf_path)
     document = loader.load()
 
     print("Splitting document into chunks...")
@@ -52,7 +55,7 @@ def main():
     query = "Give me a summary of the document."
     result = retrival_chain.invoke({"input": query})
 
-    print(result)
+    print(result.keys())
 
 
 if __name__ == "__main__":
