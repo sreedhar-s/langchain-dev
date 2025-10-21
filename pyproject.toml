@@ -10,6 +10,7 @@ dependencies = [
     "langchain-community>=0.3.31",
     "langchain-openai>=0.3.35",
     "langchain-pinecone>=0.2.12",
+    "langchain-tavily>=0.2.12",
     "langchain-text-splitters>=0.3.11",
     "pypdf>=6.1.2",
     "python-dotenv>=1.1.1",
