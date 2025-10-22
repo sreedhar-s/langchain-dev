@@ -17,7 +17,7 @@ def run_llm(query: str):
     )
 
     vector_store = PineconeVectorStore(
-        index_name="langchain-doc-index",
+        index_name=os.getenv("INDEX_NAME"),
         embedding=embeddings
     )
 
@@ -38,7 +38,7 @@ def run_llm(query: str):
     new_result = {
         "query": result['input'],
         "result": result['answer'],
-        "Source-documents": result['context']
+        "source_documents": result['context']
     }
     return new_result
 
