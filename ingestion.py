@@ -2,14 +2,12 @@ import asyncio
 import os
 import ssl
 from typing import Any, List, Dict
-from pydantic import BaseModel
 
 import certifi
 from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 from langchain_openai import AzureOpenAIEmbeddings
-from langchain_openai import AzureChatOpenAI
 from langchain_pinecone import PineconeVectorStore
 from langchain_tavily import TavilyCrawl, TavilyExtract, TavilyMap
 
